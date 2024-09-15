@@ -1,0 +1,25 @@
+# Ignore virtual environment files
+venv/
+.env
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore log files
+logs/
+
+# Ignore database files
+*.db
+*.sqlite3
+
+# Ignore test coverage reports
+htmlcov/
+.coverage
+
+Lib/
+Scripts/
+__pycache__/
+
+recruitment_model.h5
+scaler.joblib

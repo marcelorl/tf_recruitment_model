@@ -1,0 +1,12 @@
+uvicorn[standard]
+python-dotenv
+fastapi
+jsonify
+wheel
+
+tensorflow
+numpy
+pandas
+scikit-learn
+pydantic
+joblib

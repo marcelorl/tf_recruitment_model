@@ -1,0 +1,18 @@
+services:
+  api:
+    restart: always
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/workspaces/
+    env_file:
+      - .env
+    networks:
+      - server-network
+
+networks:
+  server-network: {}
