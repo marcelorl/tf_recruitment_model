@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Set work directory
-WORKDIR /workspaces
+WORKDIR /backend
 
 # Install system dependencies
 RUN apt-get update \
