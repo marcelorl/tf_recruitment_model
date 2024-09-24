@@ -2,6 +2,7 @@ import tensorflow as tf
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from backend.normalization import normalization_
 from pydantic import BaseModel
 import joblib
 from fastapi import HTTPException
@@ -130,8 +131,7 @@ def predict_hiring(candidate: CandidateData):
         filtrado = df.drop(['RecruitmentStrategy'], axis=1)
         filtrado = filtrado.astype(float)
 
-        # Converter para numpy array
-        input_final_np = filtrado.to_numpy()
+        input_final_np = normalization_(filtrado.to_numpy())
 
         # Fazer a predição com o modelo carregado
         out = model.predict(input_final_np)
