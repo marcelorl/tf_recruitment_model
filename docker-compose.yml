@@ -1,27 +1,16 @@
 services:
-  api:
+  app:
     restart: always
-    container_name: api
+    container_name: app
     build:
-      context: ./backend
+      context: ./app
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "8501:8501"
     volumes:
-      - ./backend:/backend/
+      - ./app:/app/
     env_file:
       - .env
-    networks:
-      - server-network
-
-  nginx:
-    container_name: nginx
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./frontend:/frontend
     networks:
       - server-network
 
@@ -31,7 +20,7 @@ services:
       - "tunnel"
       - "--label"
       - "edge=edghts_2mQxKc42eRC8N9zE6M8IKRaHNdN"
-      - "http://nginx:80"
+      - "http://app:8501"
     environment:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
     ports:

@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Set work directory
-WORKDIR /backend
+WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update \
@@ -23,4 +23,4 @@ RUN adduser --disabled-password --gecos '' appuser
 USER appuser
 
 # Command to run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["streamlit", "run", "app.py"]
